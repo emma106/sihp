@@ -103,7 +103,7 @@
             </div>
         </section>
 
-        <section id="servicios" class="container servicios">
+        <section id="servicios" class="container servicios scroll-animate">
             <h3>Áreas de práctica</h3>
             <div class="services-marquee" aria-roledescription="marquee" aria-label="Áreas de práctica">
               <div class="marquee-track">
@@ -148,7 +148,7 @@
             </div>
         </section>
 
-        <section id="equipo" class="container equipo">
+        <section id="equipo" class="container equipo scroll-animate">
             <h3>Nuestro equipo</h3>
             <div class="grid team-grid">
                 <div class="team-card">
@@ -237,7 +237,7 @@
             </div>
         </section>
 
-        <section id="contacto" class="container contacto">
+        <section id="contacto" class="container contacto scroll-animate">
             <h3>Contacto</h3>
             <div class="contact-grid">
                 <form class="contact-form" action="#" method="post">
@@ -257,7 +257,13 @@
                     <p><strong>Dirección:</strong> Calle Falsa 123, Ciudad</p>
                     <p><strong>Teléfono:</strong> +34 600 000 000</p>
                     <p><strong>Email:</strong> contacto@buffetabogados.example</p>
-                    <div class="map-placeholder">Mapa o dirección embebida</div>
+                    <iframe 
+                        src="https://maps.google.com/maps?q=17.9844746,-92.9318239&hl=es&z=15&output=embed" 
+                        class="map-embed" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </section>
@@ -272,6 +278,18 @@
             </nav>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/529932212333?text=Hola,%20me%20gustaría%20solicitar%20información" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0C7.164 0 0 7.164 0 16c0 2.826.738 5.578 2.136 8.006L0 32l8.194-2.136C10.422 31.262 13.174 32 16 32c8.836 0 16-7.164 16-16S24.836 0 16 0z" fill="#25D366"/>
+            <path d="M25.396 22.614c-.336.948-1.668 1.734-2.73 1.962-.73.152-1.682.274-4.888-.948-4.104-1.558-6.758-5.71-6.964-5.974-.204-.266-1.668-2.218-1.668-4.232s1.056-3.002 1.43-3.414c.374-.412.818-.516 1.092-.516.274 0 .548.002.79.014.252.014.592-.096.926.706.336.814 1.148 2.8 1.25 3.002.102.202.17.438.034.704-.136.266-.204.432-.408.666-.204.234-.428.522-.612.7-.204.202-.416.422-.18.828.236.404 1.05 1.732 2.254 2.806 1.55 1.382 2.856 1.812 3.262 2.014.406.202.644.17.882-.102.236-.272.204-.272.816-1.118.306-.424.612-.356.94-.212.33.144 2.088 1.008 2.448 1.19.36.18.6.272.688.424.088.15.088.858-.248 1.806z" fill="#fff"/>
+        </svg>
+    </a>
 
     <script>
         // Año en el footer
@@ -421,6 +439,22 @@
                                 m.dataset.cloned = '1';
                             });
                         }, 500);
+
+            // Scroll animations with Intersection Observer
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
         });
     </script>
 </body>
