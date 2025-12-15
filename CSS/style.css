@@ -66,9 +66,176 @@ body{
 .card h4{margin-top:0.25rem}
 
 .equipo{padding:2rem 0}
-.team-grid{grid-template-columns:repeat(3,1fr)}
-.team-member{background:var(--white);padding:1rem;border-radius:var(--radius);text-align:center}
-.team-member img{width:100%;height:160px;object-fit:cover;border-radius:6px}
+.team-grid{grid-template-columns:repeat(3,1fr);gap:2rem}
+
+/* Team flip cards */
+.team-card {
+  overflow: visible;
+  width: 100%;
+  max-width: 240px;
+  height: 320px;
+  margin: 0 auto;
+}
+
+.team-content {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 400ms;
+  box-shadow: 0px 0px 15px 2px rgba(15,104,123,0.2);
+  border-radius: var(--radius);
+}
+
+.team-front, .team-back {
+  background-color: var(--white);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.team-back {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--accent-dark);
+}
+
+.team-back::before {
+  position: absolute;
+  content: ' ';
+  display: block;
+  width: 200px;
+  height: 160%;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--accent-light), var(--accent-xlight), var(--accent-light), var(--accent), transparent);
+  animation: rotation_481 6000ms infinite linear;
+}
+
+.team-back-content {
+  position: absolute;
+  width: 96%;
+  height: 96%;
+  background-color: var(--accent-dark);
+  border-radius: var(--radius);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.team-back-content strong {
+  font-size: 1.1rem;
+  color: var(--accent-xlight);
+}
+
+.team-back-content p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.9);
+}
+
+.team-card:hover .team-content {
+  transform: rotateY(180deg);
+}
+
+@keyframes rotation_481 {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.team-front {
+  transform: rotateY(180deg);
+  color: var(--dark);
+  background: var(--white);
+}
+
+.team-front .team-front-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.team-front-content .team-badge {
+  background-color: var(--accent);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+  width: fit-content;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.team-description {
+  box-shadow: 0px 0px 10px 5px rgba(15,104,123,0.15);
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(255,255,255,0.95);
+  backdrop-filter: blur(5px);
+  border-radius: var(--radius);
+}
+
+.team-title {
+  font-size: 1rem;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team-title p {
+  width: 100%;
+  margin: 0;
+  color: var(--dark);
+}
+
+.team-footer {
+  color: var(--accent);
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.team-front .team-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.team-img img {
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-back::before {
+    animation: none;
+  }
+}
 
 .contacto{padding:2rem 0}
 .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:1rem}
@@ -84,13 +251,14 @@ body{
 
 @media (max-width:900px){
   .grid{grid-template-columns:repeat(2,1fr)}
-  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(2,1fr);gap:1.5rem}
   .hero-inner{flex-direction:column;text-align:center}
   .contact-grid{grid-template-columns:1fr}
 }
 @media (max-width:600px){
   .grid{grid-template-columns:1fr}
-  .team-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr;gap:2rem}
+  .team-card{max-width:100%}
   .main-nav ul{display:flex;flex-direction:column;gap:0.5rem;align-items:center}
   .brand-text h1{font-size:1rem}
 }
