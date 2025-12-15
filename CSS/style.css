@@ -1,0 +1,366 @@
+/* Copiado desde styles.css — archivo principal de estilos */
+:root{
+  /* Paleta armonizada con #8991bb */
+  --accent-dark:#0F4C5C; /* color base oscuro */
+  --accent:#0f687b; /* tono principal */
+  --accent-light:#00cfe1; /* tono claro */
+  --accent-xlight:#5dfaff; /* tono extra claro */
+  --dark:#1f2430; /* texto principal */
+  --muted:#6e7087; /* texto secundario */
+  --bg:#f4f5fb; /* fondo neutro suave */
+  --white:#ffffff;
+  --max-width:1100px;
+  --radius:8px;
+  --header-height:72px;
+}
+/* Reset */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow-x:hidden}
+body{
+  margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  line-height:1.6;color:var(--dark);background:var(--bg);-webkit-font-smoothing:antialiased;
+}
+.container{max-width:var(--max-width);margin:0 auto;padding:1rem}
+.site-header{border-bottom:1px solid rgba(255,255,255,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 0}
+.brand{display:flex;align-items:center;gap:0.75rem}
+.logo{width:96px;height:96px;object-fit:cover;border-radius:12px;flex-shrink:0}
+.brand-text h1{margin:0;font-size:1.125rem}
+.brand-text .tag{margin:0;font-size:0.875rem;color:var(--muted)}
+
+
+@media (max-width:720px){
+  .logo{width:72px;height:72px}
+}
+.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+.main-nav a{color:var(--dark);text-decoration:none;font-weight:600}
+
+.hero{padding:2.25rem 0;background:linear-gradient(90deg, rgba(15,104,123,0.06), rgba(0,207,225,0.02));}
+.hero{position:relative;overflow:hidden}
+.hero-inner{display:flex;gap:2rem;align-items:center;flex-direction:column}
+.hero-blockquote{order:1;width:100%;display:flex;justify-content:center;overflow:hidden;position:relative}
+.blockquote-figure{max-width:720px}
+/* Stack: blockquote -> copy -> carousel (all viewports); centered beneath blockquote */
+.hero-copy{order:2;width:100%;max-width:720px;margin:0.5rem auto 0;text-align:center}
+.hero-carousel{order:3;width:100%;max-width:720px;margin:0.75rem auto 0}
+
+/* Ensure blockquote's animation stays behind it */
+.hero-blockquote{position:relative;overflow:hidden}
+.hero-blockquote .hero-blockquote-inner{position:relative;z-index:1}
+.hero-blockquote .hero-logo{width:660px;height:auto;object-fit:contain;display:block;margin:0 auto}
+@media (max-width:720px){
+  .hero-blockquote .hero-logo{width:480px}
+}
+.hero-blockquote .tron-bg{display:none}
+
+/* If you later want side-by-side on wide screens, we can adjust with a media query */.hero-copy h2{margin:0 0 0.5rem 0;font-size:1.75rem}
+.hero-copy p{margin:0 0 1rem 0;color:var(--muted)}
+.btn{display:inline-block;background:var(--accent);color:var(--white);padding:0.6rem 1rem;border-radius:6px;text-decoration:none}
+.hero-image img{max-width:360px;width:100%;border-radius:8px}
+
+.servicios{padding:2rem 0}
+.servicios h3{margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.card{background:var(--white);padding:1rem;border-radius:var(--radius);box-shadow:0 1px 4px rgba(12,18,26,0.06);position:relative}
+.card-icon{width:48px;height:48px;color:var(--accent);margin-bottom:0.75rem;flex-shrink:0}
+.card h4{margin-top:0.25rem}
+
+.equipo{padding:2rem 0}
+.team-grid{grid-template-columns:repeat(3,1fr)}
+.team-member{background:var(--white);padding:1rem;border-radius:var(--radius);text-align:center}
+.team-member img{width:100%;height:160px;object-fit:cover;border-radius:6px}
+
+.contacto{padding:2rem 0}
+.contact-grid{display:grid;grid-template-columns:1fr 320px;gap:1rem}
+.contact-form{background:var(--white);padding:1rem;border-radius:var(--radius)}
+.contact-form label{display:block;font-weight:600;margin-top:0.75rem}
+.contact-form input,.contact-form textarea{width:100%;padding:0.5rem;border:1px solid #e6e9ef;border-radius:6px;margin-top:0.25rem}
+.contact-info{background:var(--white);padding:1rem;border-radius:var(--radius)}
+.map-placeholder{height:160px;background:linear-gradient(180deg, rgba(13,83,91,0.03), rgba(93,250,255,0.02));border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+
+.site-footer{background:var(--white);border-top:1px solid #e6e9ef;padding:1rem 0;margin-top:2rem}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+.footer-nav a{color:var(--muted);text-decoration:none;margin-left:1rem}
+
+@media (max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-inner{flex-direction:column;text-align:center}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  .main-nav ul{display:flex;flex-direction:column;gap:0.5rem;align-items:center}
+  .brand-text h1{font-size:1rem}
+}
+
+/* Team marquee (conveyor belt) */
+.team-grid{grid-template-columns:repeat(3,1fr)}
+.team-marquee{display:flex;gap:1rem;align-items:center;will-change:transform;--marquee-duration:18s;animation:marquee var(--marquee-duration) linear infinite;overflow:hidden}
+.team-marquee:hover{animation-play-state:paused}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){
+  .team-marquee{animation:none}
+}
+
+/* Services marquee (same behaviour as team) */
+.services-marquee{position:relative;overflow:hidden;padding-inline:8px;display:flex;align-items:stretch}
+.services-marquee .marquee-track{display:flex;gap:1rem;align-items:stretch;will-change:transform;animation:servicesMarquee var(--marquee-duration, 22s) linear infinite;flex:0 0 auto;white-space:nowrap}
+.services-marquee:hover .marquee-track{animation-play-state:paused}
+.services-marquee .card{flex:0 0 280px;width:280px;min-width:280px;padding:1.5rem 1.25rem;min-height:auto;text-align:center}
+/* Compact card content for services marquee */
+.services-marquee .card h4{font-size:1rem;margin:0 0 0.75rem;line-height:1.3;font-weight:600}
+.services-marquee .card p{font-size:0.875rem;line-height:1.6;margin:0;overflow:visible;display:block;word-wrap:break-word}
+.services-marquee .card-icon{width:48px;height:48px;margin:0 auto 0.75rem;display:block}
+@media (max-width:720px){
+  .services-marquee .card{flex:0 0 240px;width:240px;min-width:240px;padding:1.25rem 1rem;min-height:auto}
+  .services-marquee .card h4{font-size:0.95rem;line-height:1.3}
+  .services-marquee .card p{font-size:0.85rem;line-height:1.6}
+  .services-marquee .card-icon{width:44px;height:44px;margin-bottom:0.65rem}
+}
+@keyframes servicesMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){
+  .services-marquee{animation:none}
+}
+
+/* Section headings */
+section h2, .servicios h3, .equipo h3, .contacto h3{
+  color:var(--dark);
+  margin-bottom:1rem;
+  border-bottom:2px solid rgba(137,145,187,0.14);
+  padding-bottom:0.5rem;
+}
+
+/* Header, nav y footer con colores armonizados */
+/* Aplicar fondo oscuro al header (cubre todo el banner) y alto contraste */
+.site-header{background:var(--accent-dark);color:var(--white);position:fixed;top:0;left:0;right:0;height:var(--header-height);z-index:99999;box-shadow:0 2px 8px rgba(15,18,31,0.06);pointer-events:auto;
+  /* hidden by default while the loader runs */
+  transform:translateY(-120%);opacity:0;pointer-events:none;transition:transform .36s ease,opacity .25s ease}
+.page-ready .site-header{transform:none;opacity:1;pointer-events:auto}
+.site-header .header-inner{padding:0 1rem;position:relative;height:100%;display:flex;align-items:center}
+.brand-text h1,.brand-text .tag{color:var(--white)}
+.main-nav{background:transparent}
+.main-nav a{color:var(--white);font-weight:600;padding:0.25rem 0.5rem;display:inline-block}
+.main-nav a:hover{color:var(--accent-light)}
+footer.site-footer{background:var(--accent-dark);color:var(--white)}
+.footer-nav a{color:rgba(255,255,255,0.85)}
+
+/* Make room for the fixed header so content isn't hidden */
+main{padding-top:calc(var(--header-height) + 1rem);overflow-x:hidden;opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s}
+.page-ready main{opacity:1;visibility:visible}
+
+.main-nav a{color:var(--white);font-weight:600;padding:0.25rem 0.5rem;display:inline-block}
+.main-nav a:hover{color:var(--accent-xlight)}
+
+.btn:hover{background:var(--accent-dark)}
+
+/* Ensure anchor targets are visible below the fixed header */
+section, h2, h3 { scroll-margin-top: calc(var(--header-height) + 0.75rem); }
+/* Force two-line description inside services marquee cards */
+.services-marquee .card p{
+  font-size:0.85rem;
+  line-height:1.4;
+  margin:0;
+  overflow:hidden;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  line-clamp:2;
+  max-height:3em; /* ~2 lines with line-height 1.4 */
+}
+
+/* Mobile menu (hamburger) */
+.menu-toggle{display:none;background:transparent;border:0;color:var(--white);font-size:1.5rem;cursor:pointer;padding:8px;border-radius:6px}
+.menu-toggle:focus{outline:2px solid var(--accent-light);border-radius:6px}
+.menu-toggle .bar{display:block;width:22px;height:2px;background:currentColor;margin:4px 0;border-radius:2px}
+
+/* Mobile behavior: hide nav by default, show with .nav-open */
+@media (max-width:600px){
+  .menu-toggle{display:block;position:absolute;right:1rem;top:50%;transform:translateY(-50%);z-index:1200}
+  /* Use scaleY + opacity for smooth open/close without layout jumps */
+  .main-nav{transform-origin:top;transform:scaleY(0);opacity:0;pointer-events:none;transition:transform .28s cubic-bezier(.2,.9,.3,1), opacity .2s ease}
+  .main-nav ul{display:flex;flex-direction:column;gap:0.5rem;align-items:center;margin:0}
+  .site-header.nav-open .main-nav{position:absolute;left:0;right:0;top:100%;background:var(--accent-dark);z-index:999;padding:0.5rem 1rem;transform:scaleY(1);opacity:1;pointer-events:auto}
+  .site-header.nav-open .main-nav ul{display:flex;flex-direction:column;gap:0.75rem;padding:1rem 0}
+  .site-header.nav-open .main-nav ul li a{display:block;width:100%;padding:0.6rem 0.75rem;border-radius:6px}
+}
+
+/* Page loader */
+.page-loader{position:fixed;inset:0;background:var(--white);display:flex;align-items:center;justify-content:center;z-index:100000;transition:opacity .5s ease,visibility .5s;}
+.page-loader.fade-out{opacity:0;visibility:hidden}
+.spinner{width:48px;height:48px;border-radius:50%;border:4px solid var(--accent-light);border-top-color:var(--accent-xlight);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* spinner colors adapted to new palette */
+/* (spinner defined above) */
+
+/* Entry animation for elements */
+.hero-copy, .card, .team-member, .contact-form, .contact-info{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
+.page-ready .hero-copy{opacity:1;transform:none}
+.page-ready .card{opacity:1;transform:none}
+.page-ready .team-member{opacity:1;transform:none}
+.page-ready .contact-form,.page-ready .contact-info{opacity:1;transform:none}
+
+/* Carousel styles (stacked layout) */
+.hero-copy{position:relative;z-index:3;width:100%;max-width:720px;margin:0.5rem auto 0}
+.hero-blockquote{order:1}
+.hero-carousel{position:relative;overflow:hidden;border-radius:8px;max-width:720px;z-index:2;width:100%;margin:0.75rem auto 0;height:360px}
+
+/* Hero blockquote (separate from carousel) */
+.hero-blockquote{flex:0 0 auto;display:flex;align-items:center;justify-content:center;z-index:2;background:transparent;padding:0;border-radius:10px;position:relative;overflow:hidden;max-width:720px}
+.hero-blockquote-inner{position:relative;z-index:1;padding:0.6rem;width:100%;display:flex;align-items:center;justify-content:center}
+.blockquote-figure{width:100%;max-width:720px;border-radius:8px;overflow:hidden;margin:0}
+.blockquote-figure img{width:100%;height:auto;display:block;border-radius:8px;background:transparent;box-shadow:0 10px 28px rgba(15,18,31,0.06)}
+
+/* Tron container for the hero (bleed across width, positioned programmatically under the blockquote) */
+
+/* Make sure the blockquote is above the tron and clipped to its own box */
+.hero-blockquote{position:relative;z-index:2;overflow:hidden}
+.hero-blockquote .hero-blockquote-inner{position:relative;z-index:3}
+
+/* Reduce intensity of strokes and glow by default */
+.tron-paths .tron{stroke-opacity:0.8}
+@media (prefers-reduced-motion: reduce){
+  .hero > .tron-bg{opacity:.45}
+}
+
+/* Responsive adjustments for blockquote */
+@media (max-width:900px){
+  .hero-blockquote{max-width:640px;margin:0 auto;margin-top:1rem}
+  .hero > .tron-bg{height:220px}
+}
+@media (max-width:720px){
+  .hero-blockquote{max-width:480px}
+  .hero > .tron-bg{height:180px}
+}
+@media (max-width:600px){
+  .hero-blockquote{flex:1 1 auto;max-width:100%;padding:0}
+  .blockquote-figure{max-width:100%}
+}
+
+/* Tron background (separate element) */
+.tron-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.tron-svg{width:100%;height:100%;display:block}
+.tron-paths .tron{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.95;mix-blend-mode:screen}
+.tron-bg.page-animate .tron-paths .p-a{stroke-width:3.2;stroke-dasharray:720;stroke-dashoffset:720;animation:dashA 6s linear infinite, glowA 3s ease-in-out infinite}
+.tron-bg.page-animate .tron-paths .p-b{stroke-width:2.6;stroke-dasharray:520;stroke-dashoffset:520;animation:dashB 8s linear infinite, glowB 4s ease-in-out infinite}
+.tron-bg.page-animate .tron-paths .p-c{stroke-width:1.8;stroke-dasharray:420;stroke-dashoffset:420;animation:dashC 9s linear infinite, glowC 5s ease-in-out infinite}
+
+@keyframes dashB{to{stroke-dashoffset:-520}}
+@keyframes dashC{to{stroke-dashoffset:420}}
+@keyframes glowA{0%,100%{filter:drop-shadow(0 0 6px var(--accent-light))}50%{filter:drop-shadow(0 0 16px var(--accent-xlight))}}
+@keyframes glowB{0%,100%{filter:drop-shadow(0 0 4px var(--accent))}50%{filter:drop-shadow(0 0 12px var(--accent-light))}}
+@keyframes glowC{0%,100%{filter:drop-shadow(0 0 2px var(--accent-xlight))}50%{filter:drop-shadow(0 0 8px var(--accent))}}
+
+/* Sweep animation: moves the tron group horizontally across the hero */
+@keyframes tronSweep{0%{transform:translate3d(-45%,0,0)}50%{transform:translate3d(45%,0,0)}100%{transform:translate3d(-45%,0,0)}}
+
+/* Apply sweep only when page is ready; duration controlled with variable */
+.tron-bg.page-animate .tron-paths{animation:tronSweep var(--tron-sweep-duration) ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){
+  /* no heavy motion */
+}
+
+.hero-carousel .background-paths{position:absolute;inset:0;z-index:1;pointer-events:none;display:block}
+.hero-carousel .bg-svg{width:100%;height:100%;display:block}
+.hero-carousel .paths{transform-origin:center;will-change:transform}
+
+/* Lightweight background paths for hero logo (in the blockquote) */
+
+.hero-bg-paths{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:0;pointer-events:none;display:block;opacity:0;transition:opacity .6s ease;width:min(720px,92%);aspect-ratio:10/3;max-height:420px;clip-path:inset(0 round 12px)}
+.hero-bg-paths .hp-svg{width:100%;height:100%;display:block}
+.hero-blockquote-inner{position:relative;z-index:3}
+.hero-bg-paths.page-animate{opacity:1}
+
+.hp-paths .hp-p1{stroke-width:4.4;stroke-opacity:1;stroke-dasharray:640;stroke-dashoffset:640}
+.hp-paths .hp-p2{stroke-width:3.4;stroke-opacity:1;stroke-dasharray:600;stroke-dashoffset:600}
+.hp-paths .hp-p3{stroke-width:3.8;stroke-opacity:1;stroke-dasharray:660;stroke-dashoffset:660}
+.hp-paths .hp-p4{stroke-width:3.2;stroke-opacity:1;stroke-dasharray:620;stroke-dashoffset:620}
+.hero-bg-paths.page-animate .hp-paths .hp-p1{animation:hpDraw1 8s linear infinite}
+.hero-bg-paths.page-animate .hp-paths .hp-p2{animation:hpDraw2 9.6s linear infinite}
+.hero-bg-paths.page-animate .hp-paths .hp-p3{animation:hpDraw3 8.8s linear infinite}
+.hero-bg-paths.page-animate .hp-paths .hp-p4{animation:hpDraw4 9.2s linear infinite}
+
+.hp-blobs .hp-b1{opacity:0.22;transform-origin:center;will-change:transform;filter:blur(10px)}
+.hp-blobs .hp-b2{opacity:0.18;transform-origin:center;will-change:transform;filter:blur(8px)}
+.hero-bg-paths.page-animate .hp-blobs .hp-b1{animation:hpFloatA 9s ease-in-out infinite}
+.hero-bg-paths.page-animate .hp-blobs .hp-b2{animation:hpFloatB 11s ease-in-out infinite}
+
+@keyframes hpDraw1{to{stroke-dashoffset:-640}}
+@keyframes hpDraw2{to{stroke-dashoffset:-600}}
+@keyframes hpDraw3{to{stroke-dashoffset:-660}}
+@keyframes hpDraw4{to{stroke-dashoffset:620}}
+@keyframes hpFloatA{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(-8px,-6px,0)}100%{transform:translate3d(0,0,0)}}
+@keyframes hpFloatB{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(10px,6px,0)}100%{transform:translate3d(0,0,0)}}
+
+@media (prefers-reduced-motion: reduce){
+  .hero-bg-paths,.hero-bg-paths.page-animate{opacity:.6;transition:none}
+  .hero-bg-paths.page-animate .hp-paths .hp-p1,
+  .hero-bg-paths.page-animate .hp-paths .hp-p2,
+  .hero-bg-paths.page-animate .hp-paths .hp-p3,
+  .hero-bg-paths.page-animate .hp-paths .hp-p4,
+  .hero-bg-paths.page-animate .hp-blobs .hp-b1,
+  .hero-bg-paths.page-animate .hp-blobs .hp-b2{animation:none}
+}
+
+@media (max-width:720px){
+  .hero-bg-paths{width:min(480px,94%);aspect-ratio:10/3}
+}
+
+/* Complex blob animations */
+@keyframes floatA{0%{transform:translate3d(0,0,0) rotate(0)}50%{transform:translate3d(-8px,-6px,0) rotate(1deg)}100%{transform:translate3d(0,0,0) rotate(0)}}
+@keyframes floatB{0%{transform:translate3d(0,0,0) rotate(0)}50%{transform:translate3d(10px,6px,0) rotate(-1deg)}100%{transform:translate3d(0,0,0) rotate(0)}}
+@keyframes floatC{0%{transform:translate3d(0,0,0) rotate(0)}50%{transform:translate3d(6px,-10px,0) rotate(0.6deg)}100%{transform:translate3d(0,0,0) rotate(0)}}
+
+/* Hero logo introduction animation */
+.hero-logo{opacity:0;transform:translateY(14px) scale(.98)}
+.hero-logo.present{animation:logoIntro 1100ms cubic-bezier(.2,.9,.3,1) both}
+@keyframes logoIntro{0%{opacity:0;transform:translateY(24px) scale(.9)}60%{opacity:1;transform:translateY(-8px) scale(1.04)}100%{opacity:1;transform:translateY(0) scale(1)}}
+
+
+.hero-carousel.page-animate .paths .b1{animation:floatA 8s ease-in-out infinite}
+.hero-carousel.page-animate .paths .b2{animation:floatB 10s ease-in-out infinite}
+.hero-carousel.page-animate .paths .d1{animation:floatC 12s ease-in-out infinite}
+.hero-carousel.page-animate .paths .d2{animation:floatA 11s ease-in-out infinite}
+.hero-carousel .paths .decor{filter:blur(0.2px)}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce){
+  .hero-carousel.page-animate .paths .b1,
+  .hero-carousel.page-animate .paths .b2,
+  .hero-carousel.page-animate .paths .d1,
+  .hero-carousel.page-animate .paths .d2{animation:none}
+}
+.hero-carousel .slides{position:relative;height:100%}
+.hero-carousel .slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease;display:flex;align-items:center;justify-content:center}
+.hero-carousel .slide img{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block}
+
+.hero-carousel .slide-caption{position:absolute;left:16px;top:16px;background:rgba(0,0,0,0.45);color:#fff;padding:10px 14px;border-radius:8px;font-weight:700;z-index:20;max-width:calc(100% - 32px);box-shadow:0 6px 18px rgba(0,0,0,0.25);font-size:1rem}
+
+@media (max-width:900px){
+  .hero-carousel{height:260px}
+  .hero-carousel .slide-caption{font-size:.95rem}
+}
+@media (max-width:600px){
+  .hero-carousel{height:200px}
+  .hero-carousel .slide-caption{left:12px;top:12px;padding:8px 10px;font-size:.9rem}
+}
+.hero-carousel .slide.active{opacity:1;position:relative}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.45);color:#fff;border:none;padding:0.5rem 0.75rem;border-radius:6px;cursor:pointer}
+.carousel-btn.prev{left:8px}
+.carousel-btn.next{right:8px}
+.carousel-btn:focus{outline:2px solid var(--accent-light)}
+.hero-carousel .indicators{position:absolute;left:50%;transform:translateX(-50%);bottom:8px;display:flex;gap:6px}
+.hero-carousel .indicator{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.6);border:none;cursor:pointer}
+.hero-carousel .indicator.active{background:var(--accent)}
+
+@media (max-width:900px){
+  .hero-carousel{max-width:100%}
+  .hero-inner{flex-direction:column}
+}
+
+/* Skip link for keyboard users */
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{position:static;width:auto;height:auto;left:0;background:var(--accent);color:var(--white);padding:0.5rem 1rem;border-radius:6px;z-index:1200}
+
