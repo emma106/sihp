@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Buffet de Abogados — Nombre del Despacho</title>
+    <meta name="description" content="Buffet de abogados especializado en derecho civil, laboral, mercantil y penal. Atención personalizada y soluciones efectivas.">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading overlay -->
+    <div id="page-loader" class="page-loader" aria-hidden="false">
+        <div class="spinner" role="status" aria-label="Cargando"></div>
+    </div>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <div class="brand">
+                <div class="brand-text">
+                    <p class="tag">Experiencia, ética y resultados</p>
+                </div>
+            </div>
+            <!-- Decoration toggle removed -->
+            <button class="menu-toggle" aria-controls="main-navigation" aria-expanded="false" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav id="main-navigation" class="main-nav" role="navigation" aria-hidden="true">
+                <ul>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#equipo">Equipo</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero">
+
+
+
+            <div class="container hero-inner">
+                <!-- Blockquote-like area primero -->
+                <aside class="hero-blockquote" aria-label="Imagen representativa de la abogacía">
+                    <div class="hero-blockquote-inner">
+                        <div class="hero-bg-paths" aria-hidden="true">
+                            <svg class="hp-svg" viewBox="0 0 1200 360" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                                <defs>
+                                    <filter id="fGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                        <feGaussianBlur stdDeviation="12" result="blur" />
+                                        <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                                    </filter>
+                                </defs>
+                                <g class="hp-paths" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path class="hp-p1" stroke="var(--accent)" d="M60 240 C200 120, 420 120, 560 220 C700 320, 920 320, 1140 220" />
+                                    <path class="hp-p2" stroke="var(--accent-light)" d="M40 200 C180 80, 400 80, 540 180 C680 280, 900 280, 1120 180" />
+                                    <path class="hp-p3" stroke="var(--accent-dark)" d="M80 260 C220 140, 440 140, 580 240 C720 340, 940 340, 1160 240" />
+                                    <path class="hp-p4" stroke="var(--accent-xlight)" d="M20 220 C160 100, 380 100, 520 200 C660 300, 880 300, 1100 200" />
+                                </g>
+                                <g class="hp-blobs" filter="url(#fGlow)">
+                                    <circle class="hp-b1" cx="220" cy="140" r="44" fill="var(--accent)" />
+                                    <circle class="hp-b2" cx="720" cy="200" r="36" fill="var(--accent-xlight)" />
+                                </g>
+                            </svg>
+                        </div>
+                        <figure class="blockquote-figure" role="img" aria-hidden="false">
+                            <img src="Resources/logo-sihp.png" alt="Logo del despacho" class="hero-logo" onerror="this.style.display='none'">
+                        </figure>
+
+                    </div>
+                </aside>
+
+                <div class="hero-copy">
+                    <h2>Defendemos sus derechos con profesionalismo</h2>
+                    <p>Asesoría legal integral en materia civil, laboral, mercantil y penal. Representación personalizada adaptada a sus necesidades.</p>
+                    <a class="btn" href="#contacto">Solicitar consulta</a>
+                </div>
+
+                <div class="hero-carousel" aria-roledescription="carousel" aria-label="Carrusel principal">
+                    <!-- Background decorative paths (aria-hidden) -->
+                    <!-- removed: old background-paths inside carousel (now a separate .tron-bg element) -->
+                    <div class="slides">
+                        <div class="slide active" data-index="0">
+                            <img src="Resources/Abogacia 1.jpg" alt="Asesoría legal" onerror="this.style.display='none'">
+                                <div class="slide-caption">Asesoría legal</div>
+                        </div>
+                        <div class="slide" data-index="1">
+                            <img src="Resources/civil.jpg" alt="Soluciones legales a medida" onerror="this.style.display='none'">
+                                <div class="slide-caption">Soluciones legales a medida</div>
+                        </div>
+                        <div class="slide" data-index="2">
+                            <img src="Resources/Abogacia 3.jpg" alt="Defensa comprometida" onerror="this.style.display='none'">
+                                <div class="slide-caption">Defensa comprometida</div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn prev" aria-label="Anterior">‹</button>
+                    <button class="carousel-btn next" aria-label="Siguiente">›</button>
+                    <div class="indicators" aria-hidden="false"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="container servicios">
+            <h3>Áreas de práctica</h3>
+            <div class="services-marquee" aria-roledescription="marquee" aria-label="Áreas de práctica">
+              <div class="marquee-track">
+                    <article class="card">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h4>Derecho Civil</h4>
+                        <p>Contratos, arrendamientos, sucesiones y reclamaciones de cantidad.</p>
+                    </article>
+                    <article class="card">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h4>Derecho Laboral</h4>
+                        <p>Despidos, reclamaciones de salarios y asesoría preventiva para empresas.</p>
+                    </article>
+                    <article class="card">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h4>Derecho Mercantil</h4>
+                        <p>Constitución de sociedades, contratos comerciales y resolución de conflictos.</p>
+                    </article>
+                    <article class="card">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h4>Defensa Penal</h4>
+                        <p>Asistencia en procesos penales y defensa estratégica en todas las fases del proceso.</p>
+                    </article>
+              </div>
+            </div>
+        </section>
+
+        <section id="equipo" class="container equipo">
+            <h3>Nuestro equipo</h3>
+                        <div class="grid team-grid">
+                            <div class="team-member">
+                                <img src="Resources/abogado1.svg" alt="Foto abogado" onerror="this.style.display='none'">
+                                <h4>Dr. Nombre Apellido</h4>
+                                <p>Socio fundador — Especialista en derecho civil</p>
+                            </div>
+                            <div class="team-member">
+                                <img src="Resources/abogado2.svg" alt="Foto abogado" onerror="this.style.display='none'">
+                                <h4>Dra. Nombre Apellido</h4>
+                                <p>Socia — Derecho laboral y recursos humanos</p>
+                            </div>
+                            <div class="team-member">
+                                <img src="Resources/abogado3.svg" alt="Foto abogado" onerror="this.style.display='none'">
+                                <h4>Nombre Apellido</h4>
+                                <p>Asesor jurídico — Derecho mercantil</p>
+                            </div>
+                                    </div>
+        </section>
+
+        <section id="contacto" class="container contacto">
+            <h3>Contacto</h3>
+            <div class="contact-grid">
+                <form class="contact-form" action="#" method="post">
+                    <label for="name">Nombre</label>
+                    <input id="name" name="name" type="text" required>
+
+                    <label for="email">Correo</label>
+                    <input id="email" name="email" type="email" required>
+
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button class="btn" type="submit">Enviar</button>
+                </form>
+
+                <div class="contact-info">
+                    <p><strong>Dirección:</strong> Calle Falsa 123, Ciudad</p>
+                    <p><strong>Teléfono:</strong> +34 600 000 000</p>
+                    <p><strong>Email:</strong> contacto@buffetabogados.example</p>
+                    <div class="map-placeholder">Mapa o dirección embebida</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="year"></span> Buffet de Abogados. Todos los derechos reservados.</p>
+            <nav class="footer-nav">
+                <a href="#">Aviso legal</a>
+                <a href="#">Política de privacidad</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        // Año en el footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Loader: ensure minimum display time (5s) then fade-out after page load
+        (function(){
+          const loader = document.getElementById('page-loader');
+          const minMs = 2000; // minimum loader time (2s)
+          const start = Date.now();
+          window.addEventListener('load', function () {
+            if (!loader) return;
+            const elapsed = Date.now() - start;
+            const wait = Math.max(0, minMs - elapsed);
+            setTimeout(() => {
+              loader.classList.add('fade-out');
+              setTimeout(() => { loader.remove(); document.body.classList.add('page-ready'); document.dispatchEvent(new Event('page-ready')); }, 600);
+            }, wait);
+          });
+        })();
+
+        // Simple carousel
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousel = document.querySelector('.hero-carousel');
+            if (!carousel) return;
+            const slides = Array.from(carousel.querySelectorAll('.slide'));
+            const indicators = carousel.querySelector('.indicators');
+            let current = 0;
+            let timer = null;
+            const interval = 4500;
+
+            function goTo(n) {
+                slides[current].classList.remove('active');
+                slides[current].setAttribute('aria-hidden', 'true');
+                current = (n + slides.length) % slides.length;
+                slides[current].classList.add('active');
+                slides[current].setAttribute('aria-hidden', 'false');
+                updateIndicators();
+            }
+
+            function next() { goTo(current + 1); }
+            function prev() { goTo(current - 1); }
+            function start() { timer = setInterval(next, interval); }
+            function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+            // create indicators and set initial aria-hidden state for slides
+            slides.forEach((_, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'indicator';
+                btn.setAttribute('aria-label', `Ir a slide ${i + 1}`);
+                btn.addEventListener('click', () => { stop(); goTo(i); start(); });
+                indicators.appendChild(btn);
+                slides[i].setAttribute('aria-hidden', slides[i].classList.contains('active') ? 'false' : 'true');
+            });
+
+            function updateIndicators() {
+                indicators.querySelectorAll('.indicator').forEach((b, i) => b.classList.toggle('active', i === current));
+            }
+
+            carousel.querySelector('.next').addEventListener('click', () => { stop(); next(); start(); });
+            carousel.querySelector('.prev').addEventListener('click', () => { stop(); prev(); start(); });
+            carousel.addEventListener('mouseenter', stop);
+            carousel.addEventListener('mouseleave', start);
+
+            updateIndicators();
+            start();
+    });
+
+    // After loader finishes, enable decorative animations
+    (function(){
+      const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+            const finishAnim = () => {
+                // Activate carousel entrance animation
+                const carouselEl = document.querySelector('.hero-carousel');
+                if (carouselEl) carouselEl.classList.add('page-animate');
+
+                // Play intro animation on the hero logo
+                const logo = document.querySelector('.hero-logo');
+                if (logo) logo.classList.add('present');
+                // Animate background paths in the hero (lightweight)
+                const hp = document.querySelector('.hero-bg-paths');
+                if (hp) hp.classList.add('page-animate');
+            };
+      // If page is already ready
+      if (document.body.classList.contains('page-ready')) finishAnim();
+      else document.addEventListener('page-ready', finishAnim);
+
+            // No resize handling required for the removed decorative element
+    })();
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.querySelector('.menu-toggle');
+            const header = document.querySelector('.site-header');
+            const nav = document.getElementById('main-navigation');
+            if (!toggle || !header || !nav) return;
+
+                        // Decoration toggle removed
+
+            // Set initial aria-hidden depending on screen size
+            nav.setAttribute('aria-hidden', window.innerWidth > 600 ? 'false' : 'true');
+
+            toggle.addEventListener('click', () => {
+                const open = header.classList.toggle('nav-open');
+                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                nav.setAttribute('aria-hidden', open ? 'false' : 'true');
+            });
+
+                        // Decoration toggle removed; no action required
+
+            // Close menu when a nav link is clicked
+            nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+                header.classList.remove('nav-open');
+                toggle.setAttribute('aria-expanded', 'false');
+                nav.setAttribute('aria-hidden', 'true');
+            }));
+
+            // Close mobile menu on resize to larger screens
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 600) {
+                    header.classList.remove('nav-open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    nav.setAttribute('aria-hidden', 'false');
+                }
+            });
+
+            // Close menu when clicking outside (mobile)
+            document.addEventListener('click', (e) => {
+                if (!header.classList.contains('nav-open')) return;
+                if (!header.contains(e.target)) {
+                    header.classList.remove('nav-open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    nav.setAttribute('aria-hidden', 'true');
+                }
+            });
+
+                        // Services marquee: duplicate track to create seamless loop and prevent clipping
+                        setTimeout(() => {
+                            document.querySelectorAll('.services-marquee').forEach(m => {
+                                if (!m || m.dataset.cloned === '1') return;
+                                const track = m.querySelector('.marquee-track');
+                                if (!track) return;
+                                const clone = track.cloneNode(true);
+                                m.appendChild(clone);
+                                const contentWidth = track.scrollWidth + clone.scrollWidth;
+                                const base = Math.max(18, Math.round(contentWidth / 90));
+                                const duration = window.innerWidth < 720 ? Math.round(base * 1.15) : base;
+                                m.style.setProperty('--marquee-duration', duration + 's');
+                                m.dataset.cloned = '1';
+                            });
+                        }, 500);
+        });
+    </script>
+</body>
+</html>
+ 
