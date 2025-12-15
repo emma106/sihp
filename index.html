@@ -244,6 +244,8 @@
                     <input type="hidden" name="_subject" value="Nueva consulta desde el sitio web">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://emma106.github.io/sihp/index.html?submitted=true">
+                    <input type="hidden" name="_autoresponse" value="Gracias por contactarnos. Hemos recibido su mensaje y nos pondremos en contacto pronto.">
                     
                     <label for="name">Nombre</label>
                     <input id="name" name="name" type="text" required>
@@ -294,6 +296,9 @@
             <path d="M25.396 22.614c-.336.948-1.668 1.734-2.73 1.962-.73.152-1.682.274-4.888-.948-4.104-1.558-6.758-5.71-6.964-5.974-.204-.266-1.668-2.218-1.668-4.232s1.056-3.002 1.43-3.414c.374-.412.818-.516 1.092-.516.274 0 .548.002.79.014.252.014.592-.096.926.706.336.814 1.148 2.8 1.25 3.002.102.202.17.438.034.704-.136.266-.204.432-.408.666-.204.234-.428.522-.612.7-.204.202-.416.422-.18.828.236.404 1.05 1.732 2.254 2.806 1.55 1.382 2.856 1.812 3.262 2.014.406.202.644.17.882-.102.236-.272.204-.272.816-1.118.306-.424.612-.356.94-.212.33.144 2.088 1.008 2.448 1.19.36.18.6.272.688.424.088.15.088.858-.248 1.806z" fill="#fff"/>
         </svg>
     </a>
+
+    <!-- Notification Container -->
+    <div id="notification" class="notification" role="alert" aria-live="polite"></div>
 
     <script>
         // Año en el footer
@@ -459,6 +464,59 @@
             }, observerOptions);
             
             document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+
+            // Form submission handling with notifications
+            const contactForm = document.querySelector('.contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    const formData = new FormData(contactForm);
+                    const name = formData.get('name');
+                    const email = formData.get('email');
+                    const message = formData.get('message');
+                    
+                    // Show loading notification
+                    showNotification('Enviando mensaje...', 'info');
+                });
+            }
+
+            // Check if form was submitted successfully (FormSubmit redirects back)
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('submitted') === 'true') {
+                showNotification('¡Mensaje enviado exitosamente! Nos pondremos en contacto pronto.', 'success');
+                // Clean URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+
+            // Function to show notifications
+            function showNotification(message, type = 'info', duration = 5000) {
+                const notification = document.getElementById('notification');
+                if (!notification) return;
+                
+                notification.textContent = message;
+                notification.className = `notification notification-${type} show`;
+                
+                // Add WhatsApp button for error notifications
+                if (type === 'error') {
+                    const whatsappBtn = document.createElement('a');
+                    whatsappBtn.href = 'https://wa.me/529932212333?text=Hola,%20me%20gustaría%20solicitar%20información';
+                    whatsappBtn.target = '_blank';
+                    whatsappBtn.rel = 'noopener noreferrer';
+                    whatsappBtn.className = 'notification-whatsapp-btn';
+                    whatsappBtn.innerHTML = '💬 Enviar por WhatsApp';
+                    notification.appendChild(document.createElement('br'));
+                    notification.appendChild(whatsappBtn);
+                }
+                
+                // Auto hide after duration
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, duration);
+            }
+
+            // Simulate error detection (network issues, etc.)
+            window.addEventListener('offline', () => {
+                showNotification('No hay conexión a internet. Por favor, intente contactarnos por WhatsApp.', 'error', 8000);
+            });
         });
     </script>
 </body>
